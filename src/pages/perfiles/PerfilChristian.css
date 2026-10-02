@@ -1,0 +1,263 @@
+/* =====================================================================
+ *  Perfil.css — Estilos de la página de perfil (Christian Salazar)
+ * ===================================================================== */
+
+.perfil {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  background: var(--gradient-hero);
+  font-family: var(--font-sans);
+  padding: var(--space-6);
+  box-sizing: border-box;
+}
+
+/* ── Botón Volver ── */
+.perfil-back {
+  position: absolute;
+  top: var(--space-8);
+  left: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-neutral-400);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-neutral-700);
+  background: transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+              background var(--transition-fast), transform var(--transition-fast);
+}
+
+.perfil-back svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.perfil-back:hover {
+  color: var(--color-neutral-0);
+  border-color: var(--color-neutral-500);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(-2px);
+}
+
+.perfil-back:hover svg {
+  transform: translateX(-2px);
+}
+
+/* ── Contenedor principal ── */
+.perfil-container {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  animation: perfil-fade-in 0.5s ease;
+}
+
+@keyframes perfil-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Cabecera del perfil ── */
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-8);
+  border-radius: var(--radius-2xl);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-xl);
+}
+
+.perfil-avatar {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--color-neutral-800);
+  color: var(--color-neutral-0);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .perfil-avatar {
+    background: var(--color-neutral-600);
+  }
+}
+
+.perfil-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.perfil-info h1 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.perfil-email {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: var(--space-1) 0 0;
+}
+
+.perfil-logout {
+  flex-shrink: 0;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  font-family: var(--font-sans);
+  color: var(--btn-ghost-text);
+  background: transparent;
+  border: 1px solid var(--btn-ghost-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.perfil-logout:hover {
+  background: var(--btn-ghost-hover-bg);
+  border-color: var(--border-strong);
+}
+
+/* ── Tarjeta del proyecto ── */
+.perfil-card {
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-xl);
+}
+
+.perfil-card-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--color-primary-600);
+  background: var(--color-primary-50);
+  margin-bottom: var(--space-4);
+}
+
+@media (prefers-color-scheme: dark) {
+  .perfil-card-badge {
+    color: var(--color-primary-300);
+    background: rgba(76, 110, 245, 0.15);
+  }
+}
+
+.perfil-card-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+}
+
+.perfil-card-description {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-6);
+}
+
+/* ── Detalles del proyecto ── */
+.perfil-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  margin-bottom: var(--space-6);
+}
+
+.perfil-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.perfil-detail-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+}
+
+.perfil-detail-value {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  text-align: right;
+}
+
+/* ── Tags de tecnologías ── */
+.perfil-card-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.perfil-tech-tag {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.perfil-tech-tag:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .perfil-header {
+    flex-wrap: wrap;
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .perfil-logout {
+    width: 100%;
+    text-align: center;
+  }
+
+  .perfil-card {
+    padding: var(--space-6);
+  }
+
+  .perfil-detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .perfil-detail-value {
+    text-align: left;
+  }
+}
