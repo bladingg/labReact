@@ -1,4 +1,5 @@
 .login {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,20 +48,39 @@
   margin: 0 0 var(--space-8);
 }
 
+/* ── Botón Volver: posicionado arriba a la izquierda, fuera del card ── */
 .login-back {
+  position: absolute;
+  top: var(--space-8);
+  left: var(--space-8);
   display: inline-flex;
   align-items: center;
-  align-self: flex-start;
+  gap: var(--space-2);
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
-  color: var(--text-link);
+  color: var(--color-neutral-400);
   text-decoration: none;
-  margin-bottom: var(--space-6);
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-neutral-700);
+  background: transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+              background var(--transition-fast), transform var(--transition-fast);
+}
+
+.login-back svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
 
 .login-back:hover {
-  color: var(--text-link-hover);
+  color: var(--color-neutral-0);
+  border-color: var(--color-neutral-500);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(-2px);
+}
+
+.login-back:hover svg {
   transform: translateX(-2px);
 }
 
