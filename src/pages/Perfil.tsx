@@ -1,6 +1,18 @@
 import { useContext } from 'react'
-import { useParams, Navigate, Link } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext.tsx'
+
+// ── Importar el perfil de cada integrante ──
+import PerfilChristian from './perfiles/PerfilChristian.tsx'
+// import PerfilMaicol from './perfiles/PerfilMaicol.tsx'
+// import PerfilJoaquin from './perfiles/PerfilJoaquin.tsx'
+
+// Mapa de componentes por usuario
+const PERFILES: Record<string, React.ComponentType> = {
+  christian: PerfilChristian,
+  // maicol: PerfilMaicol,
+  // joaquin: PerfilJoaquin,
+}
 
 function Perfil() {
   const { usuario: usuarioUrl } = useParams<{ usuario: string }>()
@@ -17,12 +29,14 @@ function Perfil() {
     return <Navigate to={`/perfil/${nombreUsuario}`} replace />
   }
 
-  return (
-    <div className="perfil">
-      <p>Bienvenido, {auth.usuario.nombre}</p>
-      <Link to="/">Volver al inicio</Link>
-    </div>
-  )
+  // Renderizar el componente de perfil correspondiente
+  const ComponentePerfil = usuarioUrl ? PERFILES[usuarioUrl] : null
+
+  if (!ComponentePerfil) {
+    return <Navigate to="/" replace />
+  }
+
+  return <ComponentePerfil />
 }
 
 export default Perfil
