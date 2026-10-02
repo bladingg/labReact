@@ -1,4 +1,4 @@
-﻿/*
+/*
  * =====================================================================
  *  tokens.css — Design Tokens del proyecto
  *  Laboratorio 4 · Programación de Aplicaciones
@@ -13,134 +13,138 @@
  * =====================================================================
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
 
   /* -------------------------------------------------------------------
-   *  PALETA PRINCIPAL — Indigo profundo + Cian vibrante
-   *  Inspirada en plataformas educativas/tech modernas.
+   *  PALETA PRINCIPAL — Slate neutro + Azul sobrio
+   *  Minimalista y profesional, inspirada en portafolios modernos.
    * ------------------------------------------------------------------- */
 
-  /* Primario: Indigo */
-  --color-primary-50:  hsl(235, 86%, 97%);
-  --color-primary-100: hsl(235, 80%, 93%);
-  --color-primary-200: hsl(235, 76%, 84%);
-  --color-primary-300: hsl(235, 72%, 73%);
-  --color-primary-400: hsl(235, 68%, 62%);
-  --color-primary-500: hsl(235, 64%, 52%);
-  --color-primary-600: hsl(235, 66%, 43%);
-  --color-primary-700: hsl(235, 70%, 35%);
-  --color-primary-800: hsl(235, 74%, 26%);
-  --color-primary-900: hsl(235, 78%, 18%);
+  /* Primario: Azul sobrio (usado con moderación) */
+  --color-primary-50:  #f0f4ff;
+  --color-primary-100: #dbe4ff;
+  --color-primary-200: #bac8ff;
+  --color-primary-300: #91a7ff;
+  --color-primary-400: #748ffc;
+  --color-primary-500: #5c7cfa;
+  --color-primary-600: #4c6ef5;
+  --color-primary-700: #4263eb;
+  --color-primary-800: #3b5bdb;
+  --color-primary-900: #364fc7;
 
-  /* Acento: Cian / Teal */
-  --color-accent-50:  hsl(186, 90%, 96%);
-  --color-accent-100: hsl(186, 82%, 88%);
-  --color-accent-200: hsl(186, 76%, 74%);
-  --color-accent-300: hsl(186, 70%, 58%);
-  --color-accent-400: hsl(186, 66%, 46%);
-  --color-accent-500: hsl(186, 68%, 38%);
-  --color-accent-600: hsl(186, 72%, 30%);
-  --color-accent-700: hsl(186, 76%, 23%);
+  /* Acento: Teal sutil (para highlights puntuales) */
+  --color-accent-50:  #e6fcf5;
+  --color-accent-100: #c3fae8;
+  --color-accent-200: #96f2d7;
+  --color-accent-300: #63e6be;
+  --color-accent-400: #38d9a9;
+  --color-accent-500: #20c997;
+  --color-accent-600: #12b886;
+  --color-accent-700: #099268;
 
   /* -------------------------------------------------------------------
-   *  GRISES NEUTROS
+   *  GRISES NEUTROS — Slate (con un toque azulado elegante)
    * ------------------------------------------------------------------- */
-  --color-neutral-0:   hsl(0, 0%, 100%);
-  --color-neutral-50:  hsl(220, 20%, 97%);
-  --color-neutral-100: hsl(220, 16%, 93%);
-  --color-neutral-200: hsl(220, 14%, 86%);
-  --color-neutral-300: hsl(220, 12%, 73%);
-  --color-neutral-400: hsl(220, 10%, 56%);
-  --color-neutral-500: hsl(220, 9%,  42%);
-  --color-neutral-600: hsl(220, 10%, 30%);
-  --color-neutral-700: hsl(220, 12%, 22%);
-  --color-neutral-800: hsl(220, 14%, 14%);
-  --color-neutral-900: hsl(220, 16%, 8%);
+  --color-neutral-0:   #ffffff;
+  --color-neutral-50:  #f8f9fa;
+  --color-neutral-100: #f1f3f5;
+  --color-neutral-200: #e9ecef;
+  --color-neutral-300: #dee2e6;
+  --color-neutral-400: #adb5bd;
+  --color-neutral-500: #868e96;
+  --color-neutral-600: #495057;
+  --color-neutral-700: #343a40;
+  --color-neutral-800: #212529;
+  --color-neutral-900: #0f1114;
 
   /* -------------------------------------------------------------------
    *  ESTADOS SEMANTICOS
    * ------------------------------------------------------------------- */
-  --color-success-light: hsl(145, 63%, 92%);
-  --color-success:       hsl(145, 60%, 40%);
-  --color-success-dark:  hsl(145, 63%, 28%);
+  --color-success-light: #d3f9d8;
+  --color-success:       #40c057;
+  --color-success-dark:  #2b8a3e;
 
-  --color-warning-light: hsl(38, 96%, 92%);
-  --color-warning:       hsl(38, 96%, 54%);
-  --color-warning-dark:  hsl(38, 90%, 36%);
+  --color-warning-light: #fff3bf;
+  --color-warning:       #fab005;
+  --color-warning-dark:  #e67700;
 
-  --color-error-light:   hsl(0, 82%, 94%);
-  --color-error:         hsl(0, 74%, 54%);
-  --color-error-dark:    hsl(0, 74%, 38%);
+  --color-error-light:   #ffe3e3;
+  --color-error:         #fa5252;
+  --color-error-dark:    #c92a2a;
 
-  --color-info-light:    hsl(206, 86%, 92%);
-  --color-info:          hsl(206, 82%, 48%);
-  --color-info-dark:     hsl(206, 82%, 34%);
+  --color-info-light:    #d0ebff;
+  --color-info:          #339af0;
+  --color-info-dark:     #1864ab;
 
   /* -------------------------------------------------------------------
    *  TOKENS SEMANTICOS — usalos en los componentes
    * ------------------------------------------------------------------- */
 
   /* Superficies */
-  --surface-bg:          var(--color-neutral-50);
+  --surface-bg:          var(--color-neutral-0);
   --surface-card:        var(--color-neutral-0);
-  --surface-overlay:     rgba(10, 10, 30, 0.55);
-  --surface-sidebar:     var(--color-primary-900);
-  --surface-nav:         var(--color-primary-800);
+  --surface-overlay:     rgba(15, 17, 20, 0.6);
+  --surface-sidebar:     var(--color-neutral-900);
+  --surface-nav:         var(--color-neutral-0);
+  --surface-muted:       var(--color-neutral-50);
 
   /* Texto */
-  --text-primary:        var(--color-neutral-900);
+  --text-primary:        var(--color-neutral-800);
   --text-secondary:      var(--color-neutral-500);
   --text-disabled:       var(--color-neutral-300);
   --text-on-primary:     var(--color-neutral-0);
   --text-on-accent:      var(--color-neutral-0);
-  --text-link:           var(--color-primary-500);
-  --text-link-hover:     var(--color-primary-700);
+  --text-on-dark:        var(--color-neutral-100);
+  --text-link:           var(--color-primary-600);
+  --text-link-hover:     var(--color-primary-800);
 
   /* Bordes */
-  --border-subtle:       var(--color-neutral-200);
-  --border-default:      var(--color-neutral-300);
-  --border-strong:       var(--color-neutral-400);
+  --border-subtle:       var(--color-neutral-100);
+  --border-default:      var(--color-neutral-200);
+  --border-strong:       var(--color-neutral-300);
   --border-focus:        var(--color-primary-400);
 
   /* Boton primario */
-  --btn-primary-bg:      var(--color-primary-500);
-  --btn-primary-hover:   var(--color-primary-600);
-  --btn-primary-active:  var(--color-primary-700);
+  --btn-primary-bg:      var(--color-neutral-800);
+  --btn-primary-hover:   var(--color-neutral-900);
+  --btn-primary-active:  var(--color-neutral-700);
   --btn-primary-text:    var(--color-neutral-0);
 
-  /* Boton acento (CTA de landing) */
-  --btn-accent-bg:       var(--color-accent-400);
-  --btn-accent-hover:    var(--color-accent-500);
+  /* Boton acento (CTA puntual) */
+  --btn-accent-bg:       var(--color-primary-600);
+  --btn-accent-hover:    var(--color-primary-700);
   --btn-accent-text:     var(--color-neutral-0);
 
   /* Boton fantasma / outline */
-  --btn-ghost-border:    var(--color-primary-400);
-  --btn-ghost-text:      var(--color-primary-500);
-  --btn-ghost-hover-bg:  var(--color-primary-50);
+  --btn-ghost-border:    var(--color-neutral-300);
+  --btn-ghost-text:      var(--color-neutral-700);
+  --btn-ghost-hover-bg:  var(--color-neutral-50);
 
   /* Inputs / formularios */
   --input-bg:            var(--color-neutral-0);
   --input-border:        var(--color-neutral-300);
   --input-border-focus:  var(--color-primary-400);
   --input-placeholder:   var(--color-neutral-400);
-  --input-text:          var(--color-neutral-900);
+  --input-text:          var(--color-neutral-800);
 
-  /* Gradientes */
-  --gradient-hero:       linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 50%, var(--color-accent-400) 100%);
-  --gradient-card:       linear-gradient(145deg, var(--color-neutral-0) 0%, var(--color-primary-50) 100%);
+  /* Gradientes (sutiles, no llamativos) */
+  --gradient-hero:       linear-gradient(180deg, var(--color-neutral-900) 0%, var(--color-neutral-800) 100%);
+  --gradient-card:       var(--color-neutral-0);
 
   /* Sombras */
-  --shadow-xs:   0 1px  2px rgba(0, 0, 40, 0.06);
-  --shadow-sm:   0 2px  6px rgba(0, 0, 40, 0.08);
-  --shadow-md:   0 4px 14px rgba(0, 0, 40, 0.12);
-  --shadow-lg:   0 8px 28px rgba(0, 0, 40, 0.16);
-  --shadow-xl:   0 16px 48px rgba(0, 0, 40, 0.20);
+  --shadow-xs:   0 1px  2px rgba(0, 0, 0, 0.04);
+  --shadow-sm:   0 1px  3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:   0 4px  6px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:   0 10px 15px rgba(0, 0, 0, 0.06), 0 4px  6px rgba(0, 0, 0, 0.04);
+  --shadow-xl:   0 20px 25px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.04);
 
   /* -------------------------------------------------------------------
    *  TIPOGRAFIA
    * ------------------------------------------------------------------- */
-  --font-sans:   'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-mono:   'Fira Code', 'Cascadia Code', monospace;
+  --font-sans:   'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:   'SF Mono', 'Cascadia Code', 'Consolas', monospace;
 
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;
@@ -150,6 +154,7 @@
   --text-2xl:  1.5rem;
   --text-3xl:  1.875rem;
   --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
 
   --font-normal:   400;
   --font-medium:   500;
@@ -169,6 +174,8 @@
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 
   /* -------------------------------------------------------------------
    *  RADIOS DE BORDE
@@ -201,19 +208,24 @@
     --surface-bg:      var(--color-neutral-900);
     --surface-card:    var(--color-neutral-800);
     --surface-nav:     var(--color-neutral-900);
+    --surface-muted:   var(--color-neutral-800);
 
-    --text-primary:    var(--color-neutral-50);
+    --text-primary:    var(--color-neutral-100);
     --text-secondary:  var(--color-neutral-400);
     --text-disabled:   var(--color-neutral-600);
 
-    --border-subtle:   var(--color-neutral-700);
-    --border-default:  var(--color-neutral-600);
-    --border-strong:   var(--color-neutral-500);
+    --border-subtle:   var(--color-neutral-800);
+    --border-default:  var(--color-neutral-700);
+    --border-strong:   var(--color-neutral-600);
 
     --input-bg:        var(--color-neutral-800);
     --input-border:    var(--color-neutral-600);
-    --input-text:      var(--color-neutral-50);
+    --input-text:      var(--color-neutral-100);
 
-    --gradient-card:   linear-gradient(145deg, var(--color-neutral-800) 0%, var(--color-primary-900) 100%);
+    --btn-primary-bg:    var(--color-neutral-0);
+    --btn-primary-hover: var(--color-neutral-100);
+    --btn-primary-text:  var(--color-neutral-900);
+
+    --gradient-card:   var(--color-neutral-800);
   }
 }

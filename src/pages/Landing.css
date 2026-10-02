@@ -1,120 +1,120 @@
+/* =====================================================================
+ *  Landing.css — Diseño profesional minimalista, ancho completo
+ * ===================================================================== */
+
 .landing {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  background: var(--surface-bg);
   font-family: var(--font-sans);
   color: var(--text-primary);
 }
 
-/* ── Hero ── */
+/* ── Hero: fondo oscuro, texto claro, centrado ── */
 .landing-hero {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-16) var(--space-6);
-  gap: var(--space-5);
-  background: var(--gradient-hero);
+  padding: var(--space-24) var(--space-6);
+  gap: var(--space-6);
+  background: var(--color-neutral-900);
+  width: 100%;
 }
 
 .landing-badge {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: var(--font-medium);
-  letter-spacing: 0.5px;
-  padding: var(--space-2) var(--space-4);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-4);
   border-radius: var(--radius-full);
-  color: var(--color-accent-100);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
+  color: var(--color-neutral-400);
+  background: transparent;
+  border: 1px solid var(--color-neutral-700);
 }
 
 .landing-hero h1 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-5xl);
   font-weight: var(--font-bold);
   letter-spacing: -1.5px;
-  margin: var(--space-2) 0 0;
-  color: var(--text-on-primary);
+  margin: 0;
+  color: var(--color-neutral-0);
+  text-align: center;
 }
 
 .landing-subtitle {
-  max-width: 520px;
+  max-width: 480px;
   font-size: var(--text-lg);
   font-weight: var(--font-normal);
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: center;
-  color: var(--color-primary-200);
+  color: var(--color-neutral-400);
 }
 
-/* ── CTA Button ── */
+/* ── CTA Button: limpio, sin gradientes ── */
 .landing-cta {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   padding: var(--space-3) var(--space-8);
   font-size: var(--text-base);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-medium);
   font-family: var(--font-sans);
-  color: var(--btn-accent-text);
-  background: var(--btn-accent-bg);
-  border-radius: var(--radius-lg);
+  color: var(--color-neutral-900);
+  background: var(--color-neutral-0);
+  border-radius: var(--radius-md);
   text-decoration: none;
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-fast), box-shadow var(--transition-base), background var(--transition-fast);
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .landing-cta:hover {
-  background: var(--btn-accent-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background: var(--color-neutral-200);
+  transform: translateY(-1px);
 }
 
 .landing-cta-arrow {
   transition: transform var(--transition-fast);
+  font-size: var(--text-sm);
 }
 
 .landing-cta:hover .landing-cta-arrow {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
-/* ── Features ── */
+/* ── Features: tres columnas, fondo claro, ancho completo ── */
 .landing-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
-  padding: var(--space-16) var(--space-8);
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 1px;
+  background: var(--border-default);
   width: 100%;
-  box-sizing: border-box;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .feature-card {
-  padding: var(--space-8) var(--space-6);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-subtle);
-  background: var(--gradient-card);
+  padding: var(--space-12) var(--space-8);
+  background: var(--surface-bg);
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+  transition: background var(--transition-base);
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  background: var(--surface-muted);
 }
 
 .feature-icon {
-  font-size: var(--text-3xl);
-  margin-bottom: var(--space-3);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+  opacity: 0.8;
 }
 
 .feature-card h2 {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-semibold);
   color: var(--text-primary);
   margin: 0 0 var(--space-2);
@@ -122,27 +122,39 @@
 
 .feature-card p {
   font-size: var(--text-sm);
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-secondary);
+  max-width: 280px;
+  margin: 0 auto;
 }
 
-/* ── Footer ── */
+/* ── Footer: sutil ── */
 .landing-footer {
-  padding: var(--space-6);
+  padding: var(--space-8);
   text-align: center;
-  border-top: 1px solid var(--border-subtle);
   font-size: var(--text-sm);
   color: var(--text-secondary);
 }
 
-/* ── Responsive (breakpoint md: 768px) ── */
+/* ── Responsive ── */
 @media (max-width: 768px) {
+  .landing-hero {
+    padding: var(--space-16) var(--space-5);
+  }
+
   .landing-hero h1 {
     font-size: var(--text-3xl);
   }
 
+  .landing-subtitle {
+    font-size: var(--text-base);
+  }
+
   .landing-features {
     grid-template-columns: 1fr;
-    padding: var(--space-10) var(--space-5);
+  }
+
+  .feature-card {
+    padding: var(--space-8) var(--space-6);
   }
 }
