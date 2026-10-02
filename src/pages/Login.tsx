@@ -41,9 +41,15 @@ function Login() {
 
   return (
     <div className="login">
-      <form className="login-card" onSubmit={handleSubmit}>
-        <Link to="/" className="login-back">← Volver</Link>
+      <Link to="/" className="login-back">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="14" y1="8" x2="2" y2="8" />
+          <polyline points="8 14 2 8 8 2" />
+        </svg>
+        Volver al inicio
+      </Link>
 
+      <form className="login-card" onSubmit={handleSubmit}>
         <h1>Iniciar sesión</h1>
         <p className="login-subtitle">Ingresa tus credenciales para continuar</p>
 
