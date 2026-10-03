@@ -1,10 +1,11 @@
 import { useContext, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext.tsx'
 import './PerfilChristian.css'
 
 function PerfilChristian() {
   const auth = useContext(AuthContext)
+  const { usuario } = useParams<{ usuario: string }>()
 
   // Estado propio: contador de "Me gusta" con useState
   const [likes, setLikes] = useState(46830)
@@ -49,6 +50,12 @@ function PerfilChristian() {
       </Link>
 
       <div className="perfil-container">
+        {/* Mensaje de bienvenida usando useParams */}
+        <div className="perfil-welcome">
+          <span className="perfil-welcome-wave">👋</span>
+          <p>Bienvenido al perfil de <strong>{usuario}</strong></p>
+        </div>
+
         {/* Cabecera del perfil */}
         <div className="perfil-header">
           <div className="perfil-avatar">CS</div>
