@@ -55,10 +55,10 @@ function PerfilJoaquin() {
   // Iniciales para el avatar
   const iniciales = auth?.usuario?.nombre
     ? auth.usuario.nombre
-        .split(' ')
-        .map((p) => p[0])
-        .join('')
-        .toUpperCase()
+      .split(' ')
+      .map((p) => p[0])
+      .join('')
+      .toUpperCase()
     : 'JM'
 
   return (
@@ -77,7 +77,7 @@ function PerfilJoaquin() {
           <div className="perfil-joaquin-avatar">{iniciales}</div>
           <div className="perfil-joaquin-info">
             <h1>{auth?.usuario?.nombre || 'Joaquin Michea'}</h1>
-            <p className="perfil-joaquin-email">{auth?.usuario?.email || 'joaquin@mail.com'}</p>
+            <p className="perfil-joaquin-email">{auth?.usuario?.email || 'joaquin.michea@alumnos.ucentral.cl'}</p>
           </div>
           <button className="perfil-joaquin-logout" onClick={handleCerrarSesion}>
             Cerrar sesión
@@ -110,7 +110,7 @@ function PerfilJoaquin() {
             </div>
             <div className="perfil-joaquin-detail">
               <span className="perfil-joaquin-detail-label">Área</span>
-              <span className="perfil-joaquin-detail-value">[Área / Línea: Astrofísica Computacional]</span>
+              <span className="perfil-joaquin-detail-value">Astronomía</span>
             </div>
             <div className="perfil-joaquin-detail">
               <span className="perfil-joaquin-detail-label">Estado</span>
@@ -118,7 +118,7 @@ function PerfilJoaquin() {
             </div>
             <div className="perfil-joaquin-detail">
               <span className="perfil-joaquin-detail-label">Tipo de Software</span>
-              <span className="perfil-joaquin-detail-value">[Software de Escritorio & Inteligencia Artificial]</span>
+              <span className="perfil-joaquin-detail-value">Agente inteligente de seleccion de imagenes astronomicas</span>
             </div>
           </div>
 
@@ -126,7 +126,6 @@ function PerfilJoaquin() {
             <span className="perfil-joaquin-tech-tag">Python</span>
             <span className="perfil-joaquin-tech-tag">CustomTkinter</span>
             <span className="perfil-joaquin-tech-tag">TensorFlow</span>
-            <span className="perfil-joaquin-tech-tag">[FITS / AstroPy]</span>
           </div>
 
           {/* Sección de estado interactivo (useState & evento onClick) */}
