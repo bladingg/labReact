@@ -10,6 +10,9 @@ function PerfilMaicol() {
   // useParams — leer el parámetro :usuario de la URL
   const { usuario } = useParams<{ usuario: string }>()
 
+  // useState<number> — contador de visitas al perfil
+  const [visitas, setVisitas] = useState<number>(0)
+
   // useState<string> — última visita leída desde localStorage
   const [ultimaVisita, setUltimaVisita] = useState<string>('')
 
@@ -27,6 +30,9 @@ function PerfilMaicol() {
     auth?.cerrarSesion()
   }
 
+  const handleVisita = () => {
+    setVisitas(visitas + 1)
+  }
 
   return (
     <div className="perfil">
@@ -47,6 +53,14 @@ function PerfilMaicol() {
           </div>
           <button className="perfil-logout" onClick={handleCerrarSesion}>
             Cerrar sesión
+          </button>
+        </div>
+
+        {/* ── Contador de visitas (useState<number> + evento onClick) ── */}
+        <div className="maicol-visitas">
+          <span className="maicol-visitas-count">👁 Visitas: {visitas}</span>
+          <button className="maicol-visitas-btn" onClick={handleVisita}>
+            Registrar visita
           </button>
         </div>
 
