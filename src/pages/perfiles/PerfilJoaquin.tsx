@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext.tsx'
 import './PerfilJoaquin.css'
@@ -6,6 +6,10 @@ import './PerfilJoaquin.css'
 function PerfilJoaquin() {
   const auth = useContext(AuthContext)
   const { usuario: usuarioUrl } = useParams<{ usuario: string }>()
+
+  // Estado tipado para el contador de interacciones/me gusta del proyecto
+  const [likes, setLikes] = useState<number>(0)
+  void setLikes // Se vinculará al evento onClick en la siguiente etapa
 
   // Validar coincidencia entre usuario de la URL y usuario de sesión (AuthContext)
   const usuarioLogueado = auth?.usuario?.nombre.split(' ')[0].toLowerCase()
@@ -92,6 +96,14 @@ function PerfilJoaquin() {
             <span className="perfil-joaquin-tech-tag">CustomTkinter</span>
             <span className="perfil-joaquin-tech-tag">TensorFlow</span>
             <span className="perfil-joaquin-tech-tag">[FITS / AstroPy]</span>
+          </div>
+
+          {/* Sección de estado interactivo (useState) */}
+          <div className="perfil-joaquin-stats">
+            <div className="perfil-joaquin-stat-item">
+              <span className="perfil-joaquin-stat-label">Reconocimientos del proyecto</span>
+              <span className="perfil-joaquin-stat-count">{likes}</span>
+            </div>
           </div>
         </div>
       </div>

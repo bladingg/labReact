@@ -240,6 +240,41 @@
   border-color: var(--border-strong);
 }
 
+/* ── Estadísticas y Estado con useState ── */
+.perfil-joaquin-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  border: 1px solid var(--border-default);
+}
+
+.perfil-joaquin-stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.perfil-joaquin-stat-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+}
+
+.perfil-joaquin-stat-count {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-primary-400);
+  background: rgba(76, 110, 245, 0.1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+
 /* ── Estado de validación (useParams & useContext) ── */
 .perfil-joaquin-auth-status {
   display: flex;
