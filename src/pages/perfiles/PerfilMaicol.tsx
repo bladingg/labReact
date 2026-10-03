@@ -10,6 +10,9 @@ function PerfilMaicol() {
   // useParams — leer el parámetro :usuario de la URL
   const { usuario } = useParams<{ usuario: string }>()
 
+  // useState<number> — contador de "me gusta" en la tarjeta
+  const [likes, setLikes] = useState<number>(0)
+
   // useState<string> — última visita leída desde localStorage
   const [ultimaVisita, setUltimaVisita] = useState<string>('')
 
@@ -25,6 +28,10 @@ function PerfilMaicol() {
 
   const handleCerrarSesion = () => {
     auth?.cerrarSesion()
+  }
+
+  const handleLike = () => {
+    setLikes(likes + 1)
   }
 
   return (
@@ -43,10 +50,16 @@ function PerfilMaicol() {
           <div className="perfil-avatar">MA</div>
           <div className="perfil-info">
             <h1>{auth?.usuario?.nombre}</h1>
+            <p className="perfil-email">{auth?.usuario?.email}</p>
           </div>
           <button className="perfil-logout" onClick={handleCerrarSesion}>
             Cerrar sesión
           </button>
+        </div>
+
+        {/* ── Indicador de ruta (useParams) ── */}
+        <div className="maicol-url-badge">
+          Perfil activo: <strong>/perfil/{usuario}</strong>
         </div>
 
         {/* ── Última visita (useEffect + localStorage) ── */}
@@ -91,6 +104,13 @@ function PerfilMaicol() {
             <span className="perfil-tech-tag">MVC</span>
           </div>
 
+          {/* ── Contador de "me gusta" (useState + evento onClick) ── */}
+          <div className="maicol-likes">
+            <button className="maicol-likes-btn" onClick={handleLike}>
+              ❤️ Me gusta
+            </button>
+            <span className="maicol-likes-count">{likes}</span>
+          </div>
         </div>
 
         {/* ── Tarjeta del proyecto: Turnero Ucen ── */}
