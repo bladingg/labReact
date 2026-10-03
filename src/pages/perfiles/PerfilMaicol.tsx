@@ -71,7 +71,7 @@ function PerfilMaicol() {
 
         {/* ── Tarjeta del proyecto: Sistema de Gestión Académica ── */}
         <div className="perfil-card">
-          <span className="perfil-card-badge">Laboratorio 1</span>
+          <span className="perfil-card-badge">Sistema de Gestión Académica</span>
           <h2 className="perfil-card-title">Sistema de Gestión Académica</h2>
           <p className="perfil-card-description">
             Sistema web completo diseñado para el Liceo José Santos Ossa. Permite administrar
@@ -110,6 +110,43 @@ function PerfilMaicol() {
               ❤️ Me gusta
             </button>
             <span className="maicol-likes-count">{likes}</span>
+          </div>
+        </div>
+
+        {/* ── Tarjeta del proyecto: Turnero Ucen ── */}
+        <div className="perfil-card">
+          <span className="perfil-card-badge">Turnero Ucen</span>
+          <h2 className="perfil-card-title">Turnero Ucen</h2>
+          <p className="perfil-card-description">
+            Sistema web de gestión de filas desarrollado durante mi Práctica Operacional para la
+            Universidad Central (Sede Coquimbo). Fue implementado para controlar el flujo masivo
+            de personas durante la época de Admisión y Matrículas 2027.
+          </p>
+
+          <div className="perfil-card-details">
+            <div className="perfil-detail">
+              <span className="perfil-detail-label">Desarrolladores</span>
+              <span className="perfil-detail-value">Christian Salazar y Maicol Aracena</span>
+            </div>
+            <div className="perfil-detail">
+              <span className="perfil-detail-label">Institución</span>
+              <span className="perfil-detail-value">Universidad Central (Sede Coquimbo)</span>
+            </div>
+            <div className="perfil-detail">
+              <span className="perfil-detail-label">Área</span>
+              <span className="perfil-detail-value">Admisión, Registro Curricular y Matrículas</span>
+            </div>
+            <div className="perfil-detail">
+              <span className="perfil-detail-label">Estado</span>
+              <span className="perfil-detail-value">Entregado</span>
+            </div>
+          </div>
+
+          <div className="perfil-card-techs">
+            <span className="perfil-tech-tag">PHP</span>
+            <span className="perfil-tech-tag">JavaScript</span>
+            <span className="perfil-tech-tag">CSS</span>
+            <span className="perfil-tech-tag">HTML5</span>
           </div>
         </div>
       </div>
