@@ -1,7 +1,31 @@
-import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext.tsx'
 import './PerfilJoaquin.css'
 
 function PerfilJoaquin() {
+  const auth = useContext(AuthContext)
+  const { usuario: usuarioUrl } = useParams<{ usuario: string }>()
+
+  // Validar coincidencia entre usuario de la URL y usuario de sesión (AuthContext)
+  const usuarioLogueado = auth?.usuario?.nombre.split(' ')[0].toLowerCase()
+  const usuarioCoincide = Boolean(
+    usuarioUrl && usuarioLogueado && usuarioUrl.toLowerCase() === usuarioLogueado
+  )
+
+  const handleCerrarSesion = () => {
+    auth?.cerrarSesion()
+  }
+
+  // Iniciales para el avatar
+  const iniciales = auth?.usuario?.nombre
+    ? auth.usuario.nombre
+        .split(' ')
+        .map((p) => p[0])
+        .join('')
+        .toUpperCase()
+    : 'JM'
+
   return (
     <div className="perfil-joaquin">
       <Link to="/" className="perfil-joaquin-back">
@@ -15,18 +39,28 @@ function PerfilJoaquin() {
       <div className="perfil-joaquin-container">
         {/* Cabecera del perfil */}
         <div className="perfil-joaquin-header">
-          <div className="perfil-joaquin-avatar">JM</div>
+          <div className="perfil-joaquin-avatar">{iniciales}</div>
           <div className="perfil-joaquin-info">
-            <h1>Joaquin Michea</h1>
-            <p className="perfil-joaquin-email">joaquin@mail.com</p>
+            <h1>{auth?.usuario?.nombre || 'Joaquin Michea'}</h1>
+            <p className="perfil-joaquin-email">{auth?.usuario?.email || 'joaquin@mail.com'}</p>
           </div>
-          <button className="perfil-joaquin-logout">
+          <button className="perfil-joaquin-logout" onClick={handleCerrarSesion}>
             Cerrar sesión
           </button>
         </div>
 
         {/* Tarjeta del proyecto Lab 1 */}
         <div className="perfil-joaquin-card">
+          {/* Banner de validación con useParams y useContext */}
+          <div className={`perfil-joaquin-auth-status ${usuarioCoincide ? 'valid' : 'invalid'}`}>
+            <span className="perfil-joaquin-status-dot"></span>
+            <span>
+              {usuarioCoincide
+                ? `Validación exitosa: El usuario en URL "/perfil/${usuarioUrl}" coincide con la sesión de ${auth?.usuario?.nombre}.`
+                : `Advertencia: El parámetro de URL "/perfil/${usuarioUrl}" no coincide con el usuario autenticado.`}
+            </span>
+          </div>
+
           <span className="perfil-joaquin-badge">Laboratorio 1</span>
           <h2 className="perfil-joaquin-title">AgenteInteligente_LentesGravitacionales</h2>
           <p className="perfil-joaquin-subtitle">Lens Sentinel AI</p>
