@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext.tsx'
 import './PerfilJoaquin.css'
@@ -7,8 +7,35 @@ function PerfilJoaquin() {
   const auth = useContext(AuthContext)
   const { usuario: usuarioUrl } = useParams<{ usuario: string }>()
 
-  // Estado tipado para el contador de interacciones/me gusta del proyecto
-  const [likes, setLikes] = useState<number>(0)
+  // Estado tipado para el contador de interacciones/me gusta (inicializado desde localStorage si existe)
+  const [likes, setLikes] = useState<number>(() => {
+    const guardados = localStorage.getItem('perfil_joaquin_likes')
+    return guardados ? parseInt(guardados, 10) : 0
+  })
+
+  // Estado para registrar la última visita obtenida de localStorage
+  const [ultimaVisita, setUltimaVisita] = useState<string>('')
+
+  // Efecto secundario: persistir en localStorage la última vez que se visitó el perfil
+  useEffect(() => {
+    const visitaPrevia = localStorage.getItem('perfil_joaquin_ultima_visita')
+    if (visitaPrevia) {
+      setUltimaVisita(visitaPrevia)
+    }
+
+    const ahora = new Date().toLocaleString('es-CL', {
+      dateStyle: 'medium',
+      timeStyle: 'medium',
+    })
+    localStorage.setItem('perfil_joaquin_ultima_visita', ahora)
+  }, [])
+
+  // Efecto secundario: reacciona a los cambios en "likes" para guardarlos en localStorage
+  useEffect(() => {
+    if (likes > 0) {
+      localStorage.setItem('perfil_joaquin_likes', likes.toString())
+    }
+  }, [likes])
 
   // Evento onClick para actualizar el estado
   const handleDarLike = () => {
@@ -120,6 +147,19 @@ function PerfilJoaquin() {
               </svg>
               <span>Dar Me Gusta</span>
             </button>
+          </div>
+
+          {/* Registro de última visita (useEffect & localStorage) */}
+          <div className="perfil-joaquin-footer-visit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>
+              {ultimaVisita
+                ? `Última visita registrada: ${ultimaVisita}`
+                : 'Primera visita a tu perfil registrada en este navegador'}
+            </span>
           </div>
         </div>
       </div>
