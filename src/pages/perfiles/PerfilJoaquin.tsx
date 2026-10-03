@@ -9,7 +9,11 @@ function PerfilJoaquin() {
 
   // Estado tipado para el contador de interacciones/me gusta del proyecto
   const [likes, setLikes] = useState<number>(0)
-  void setLikes // Se vinculará al evento onClick en la siguiente etapa
+
+  // Evento onClick para actualizar el estado
+  const handleDarLike = () => {
+    setLikes((prev) => prev + 1)
+  }
 
   // Validar coincidencia entre usuario de la URL y usuario de sesión (AuthContext)
   const usuarioLogueado = auth?.usuario?.nombre.split(' ')[0].toLowerCase()
@@ -98,12 +102,24 @@ function PerfilJoaquin() {
             <span className="perfil-joaquin-tech-tag">[FITS / AstroPy]</span>
           </div>
 
-          {/* Sección de estado interactivo (useState) */}
+          {/* Sección de estado interactivo (useState & evento onClick) */}
           <div className="perfil-joaquin-stats">
             <div className="perfil-joaquin-stat-item">
               <span className="perfil-joaquin-stat-label">Reconocimientos del proyecto</span>
               <span className="perfil-joaquin-stat-count">{likes}</span>
             </div>
+
+            <button
+              type="button"
+              className="perfil-joaquin-btn-like"
+              onClick={handleDarLike}
+              title="Dar reconocimiento al proyecto"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <span>Dar Me Gusta</span>
+            </button>
           </div>
         </div>
       </div>
