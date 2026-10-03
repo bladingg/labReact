@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext.tsx'
 import './PerfilChristian.css'
@@ -18,6 +18,21 @@ function PerfilChristian() {
     }
     setLiked(!liked)
   }
+
+  // Estado para mostrar la última visita
+  const [ultimaVisita, setUltimaVisita] = useState<string | null>(null)
+
+  // useEffect: guarda en localStorage la última vez que se visitó el perfil
+  useEffect(() => {
+    const clave = 'ultimaVisita_christian'
+    const visitaAnterior = localStorage.getItem(clave)
+    if (visitaAnterior) {
+      setUltimaVisita(visitaAnterior)
+    }
+    // Guardar la visita actual
+    const ahora = new Date().toLocaleString('es-CL')
+    localStorage.setItem(clave, ahora)
+  }, [])
 
   const handleCerrarSesion = () => {
     auth?.cerrarSesion()
@@ -40,6 +55,9 @@ function PerfilChristian() {
           <div className="perfil-info">
             <h1>{auth?.usuario?.nombre}</h1>
             <p className="perfil-email">{auth?.usuario?.email}</p>
+            {ultimaVisita && (
+              <p className="perfil-last-visit">Última visita: {ultimaVisita}</p>
+            )}
           </div>
           <button className="perfil-logout" onClick={handleCerrarSesion}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
