@@ -4,13 +4,13 @@ import { AuthContext } from '../context/AuthContext.tsx'
 
 // ── Importar el perfil de cada integrante ──
 import PerfilChristian from './perfiles/PerfilChristian.tsx'
-// import PerfilMaicol from './perfiles/PerfilMaicol.tsx'
+import PerfilMaicol from './perfiles/PerfilMaicol.tsx'
 // import PerfilJoaquin from './perfiles/PerfilJoaquin.tsx'
 
 // Mapa de componentes por usuario
 const PERFILES: Record<string, React.ComponentType> = {
   christian: PerfilChristian,
-  // maicol: PerfilMaicol,
+  maicol: PerfilMaicol,
   // joaquin: PerfilJoaquin,
 }
 
