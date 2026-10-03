@@ -123,6 +123,11 @@ function PerfilChristian() {
           </div>
         </div>
       </div>
+
+      {/* Footer del perfil */}
+      <footer className="perfil-footer">
+        <p>Christian Salazar · Universidad Central, Sede Coquimbo · {new Date().getFullYear()}</p>
+      </footer>
     </div>
   )
 }
